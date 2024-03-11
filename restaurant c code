@@ -1,0 +1,248 @@
+#include <stdio.h>
+#define NUM_TABLES 10
+
+void main() {
+    int a, b, souprate, starterrate, total, q1, q2, total1, total2,payment_method;
+    float tax_rate = 0.1;
+    float discount_rate = 0.05;
+     int tables[NUM_TABLES] = {0}; // Assuming 10% tax rate
+
+    printf(" 1 = Mancho Soup \n");
+    printf(" 2 = Tomato Soup \n");
+    printf(" 3 = Sweet Corn Soup \n");
+    printf(" 4 = Tom Yung Soup \n");
+    printf(" 5 = Palak Soup \n");
+    printf(" 6 = Schezwan Soup \n");
+    printf(" 7 = No Soup \n");
+    printf("Enter The Number of Soup\n");
+    scanf("%d", &a);
+    switch (a) {
+        // Cases for soup options
+        case 1:
+        printf("mancho soup\t ");
+        souprate=299;
+        printf("Enter The Quantity of Soup\n");
+       scanf("%d", &q1);
+       total1 = souprate * q1;
+       printf("Soup Sub Total Is %d\n",total1);
+       break;
+       
+         case 2:
+         printf("tomato soup\t");
+         souprate=299;
+         printf("Enter The Quantity of Soup\n");
+       scanf("%d", &q1);
+       total1 = souprate * q1;
+       printf("Soup Sub Total Is %d\n",total1);
+       break;
+       
+       case 3:
+       printf("sweet corn soup- \t");
+        souprate=399;
+        printf("Enter The Quantity of Soup\n");
+       scanf("%d", &q1);
+       total1 = souprate * q1;
+       printf("Soup Sub Total Is %d\n",total1);
+       break;
+       
+       case 4:
+       printf("Tom Yung Soup\t");
+       souprate = 299;
+        printf("Enter The Quantity of Soup\n");
+       scanf("%d", &q1);
+       total1 = souprate * q1;
+       printf("Soup Sub Total Is %d\n",total1);
+       break;
+       
+       case 5:
+       printf("Palak Soup\t");
+souprate = 299;
+printf("Enter The Quantity of Soup\n");
+scanf("%d", &q1);
+total1 = souprate * q1;
+printf("Soup Sub Total Is %d\n",total1);
+break;
+
+        case 6:
+        printf("Schezwan Soup\t");
+souprate =299;
+printf("Enter The Quantity of Soup\n");
+scanf("%d", &q1);
+total1 = souprate * q1;
+printf("Soup Sub Total Is %d\n",total1);
+break;
+      
+
+        case 7:
+            printf("No Soup\n");
+            souprate = 0;
+            total1 = souprate;
+            break;
+            
+         case 8: 
+            printf("Order Canceled\n");
+            total1 = 0;
+            break;
+        default:
+            printf("\n This Is Not In Menu Card");
+    }
+
+    printf(" 1 = Veg Lollypop \n");
+    printf(" 2 = Chicken Lollypop \n");
+    printf(" 3 = Veg Crispy \n");
+    printf(" 4 = Chicken Crispy \n");
+    printf(" 5 = Spring Roll \n");
+    printf(" 6 = Paneer Chilly \n");
+    printf(" 7 = No Starter \n");
+    printf("Enter The Number of Starter\n");
+    scanf("%d", &b);
+    switch (b) {
+        // Cases for starter options
+        case 1:
+        printf("Veg Lollypop\n");
+starterrate = 150;
+printf("Enter The Quantity of Starter\n");
+scanf("%d", &q2);
+total2 = starterrate * q2;
+printf("Starter Sub Total Is %d\n",total2);
+break;
+        
+        case 2:
+        printf("Chiken Lollypop\n");
+starterrate = 250;
+printf("Enter The Quantity of Starter\n");
+scanf("%d", &q2);
+total2 = starterrate * q2;
+printf("Starter Sub Total Is %d\n",total2);
+break;
+
+case 3:
+printf("Veg Crispy\n");
+starterrate = 140;
+printf("Enter The Quantity of Starter\n");
+scanf("%d", &q2);
+total2 = starterrate * q2;
+printf("Starter Sub Total Is %d\n",total2);
+break;
+
+case 4:
+printf("Chiken Crispy\n");
+starterrate = 240;
+printf("Enter The Quantity of Starter\n");
+scanf("%d", &q2);
+total2 = starterrate * q2;
+printf("Starter Sub Total Is %d\n",total2);
+break;
+
+case 5:
+printf("Spring Roll\n");
+starterrate = 100;
+printf("Enter The Quantity of Starter\n");
+scanf("%d", &q2);
+total2 = starterrate * q2;
+printf("Starter Sub Total Is %d\n",total2);
+break;
+
+case 6:
+printf("Paneer Chilly\n");
+starterrate = 220;
+printf("Enter The Quantity of Starter\n");
+scanf("%d", &q2);
+total2 = starterrate * q2;
+printf("Starter Sub Total Is %d\n",total2);
+break;
+
+        case 7:
+            printf("No Starter\n");
+            starterrate = 0;
+            total2 = starterrate;
+            break;
+        case 8: // Cancel Order option
+            printf("Order Canceled\n");
+            total2 = 0;
+            break;
+        default:
+            printf("\n This Is Not In Menu Card");
+    }
+
+    total = total1 + total2;
+    float tax_amount = total * tax_rate;
+    float total_with_tax = total + tax_amount;
+    printf("\n Your Total Bill is %d\n", total);
+    printf("Tax (10%%): %.2f\n", tax_amount);
+    printf("Total Bill Including Tax: %.2f\n", total_with_tax);
+    
+     if (total_with_tax >= 500) { // Example condition: Discount for orders above $500
+        float discount_amount = total * discount_rate;
+        total_with_tax -= discount_amount;
+        printf("You've received a discount of $%.2f\n", discount_amount);
+    }
+
+    printf("\n Your Total Bill is %.2f\n", total_with_tax);
+    printf("Tax (10%%): %.2f\n", tax_amount);
+    printf("Total Bill Including Tax: %.2f\n", total_with_tax);
+    printf("\nSelect Payment Method:\n");
+    printf("1. Cash\n");
+    printf("2. Credit/Debit Card\n");
+    printf("3. Online Payment Gateway\n");
+    printf("4. Digital Wallet\n");
+     
+    scanf("%d", &payment_method);
+
+    // Perform actions based on payment method
+    switch (payment_method) 
+    {
+        case 1:
+            printf("Please pay $%.2f in cash.\n", total_with_tax);
+            break;
+        case 2:
+            printf("Please swipe/insert your credit/debit card.\n");
+            // Additional actions for card payment
+            break;
+        case 3:
+            printf("Please proceed with the online payment.\n");
+            printf("-------------------------------------------------------------\n");
+            printf("|                        QR Code Image                       |\n");
+            printf("|                                                             |\n");
+            printf("|                   [ Sample QR Code ]                        |\n");
+            printf("|                      [ Payment ]                           |\n");
+            printf("|                                                             |\n");
+            printf("|         [      Thank you for your payment!     ]            |\n");
+            printf("|                                                             |\n");
+            printf("|                         Total: $%.2f                       |\n", total_with_tax);
+            printf("|                                                             |\n");
+            printf("-------------------------------------------------------------\n");
+            // Additional actions for online payment
+            break;
+        case 4:
+            printf("Please scan the QR code to complete payment through your digital wallet.\n");
+            // Additional actions for digital wallet payment
+            break;
+        default:
+            printf("Invalid payment method.\n");
+            // Handle invalid payment method
+            break;
+            
+            
+    
+}
+printf("\nDo you want to make a reservation? (1 for Yes, 0 for No):");
+    int reservation_choice;
+    scanf("%d", &reservation_choice);
+    if (reservation_choice == 1) {
+        // Check table availability
+        int table_number;
+        printf("Enter the table number you want to reserve (1 to %d): ", NUM_TABLES);
+        scanf("%d", &table_number);
+        if (table_number >= 1 && table_number <= NUM_TABLES) {
+            if (tables[table_number - 1] == 0) {
+                tables[table_number - 1] = 1; // Reserve the table
+                printf("Table %d has been successfully reserved.\n", table_number);
+            } else {
+                printf("Sorry, Table %d is already reserved. Please choose another table.\n", table_number);
+            }
+        } else {
+            printf("Invalid table number.\n");
+        }
+    }
+    }
